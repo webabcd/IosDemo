@@ -30,8 +30,13 @@ struct SwiftView01: View {
     }
 
     var body: some View {
-
-        Text(result);
+        VStack {
+            HStack {
+                Text(result)
+                Spacer()
+            }
+            Spacer()
+        }
     }
     
     func sample1() -> String {
@@ -47,7 +52,7 @@ struct SwiftView01: View {
     }
 
     func sample2() -> String {
-        // 支持 Int, Int64, UInt, UInt64, Float, Double, Bool, String 等基本数据类型
+        // 支持 Int, Int64, UInt, UInt64, Float, Double, Bool, String, Character 等基本数据类型
         
         let a: Int = 10; // 通过在变量名后面加上 :数据类型 来指定变量的数据类型（不指定的话则由编译器自己推断）
         let b: Double = 10.0;
