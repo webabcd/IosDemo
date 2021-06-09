@@ -1,5 +1,5 @@
 /*
- * 本例用于演示变量，常量，基本数据类型，类型转换，类型别名，元组，可空类型，运算符，??，类型后跟!和?，值后跟!和?，控制台打印数据，注释可嵌套
+ * 本例用于演示变量，常量，基本数据类型，类型转换，类型别名，元组，可空类型，运算符，??，类型后跟!和?，值后跟!和?，m...n，m...，...n，m..<n，控制台打印数据，注释可嵌套
  */
 
 import SwiftUI
@@ -27,6 +27,8 @@ struct SwiftView01: View {
         result += sample4(); // 可选类型（Optional），即可空类型
         result += "\n";
         result += sample5(); // 运算符
+        result += "\n";
+        result += sample6(); // 范围运算符（m...n，m...，...n，m..<n）
     }
 
     var body: some View {
@@ -140,5 +142,20 @@ struct SwiftView01: View {
         
         // nil, 123, Optional(7), 7, nil
         return "\(a), \(b), \(c?.count), \(c!.count), \(d?.count)";
+    }
+    
+    func sample6() -> String {
+        let a = ["a", "b", "c", "d", "e", "f", "g"];
+        
+        // 索引位置 2 到末尾
+        let b = a[2...]; // ["c", "d", "e", "f", "g"]
+        // 索引位置起始到 2
+        let c = a[...2]; // ["a", "b", "c"]
+        // 索引位置 2 到 4
+        let d = a[2...4]; // ["c", "d", "e"]
+        // 索引位置 2 到 3
+        let e = a[2..<4]; // ["c", "d"]
+        
+        return "\(a), \(b), \(c), \(d), \(e)";
     }
 }

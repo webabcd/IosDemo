@@ -78,7 +78,7 @@ struct SwiftView02: View {
         // 取后 4 个字符
         let c = a.suffix(4); // abcd
         
-        // 取第 4 个到第 6 个字符
+        // 取索引位置 3 到 5 的字符
         let index1 = a.index(a.startIndex, offsetBy: 3);
         let index2 = a.index(a.startIndex, offsetBy: 6);
         let d = a[index1..<index2]; // abc
