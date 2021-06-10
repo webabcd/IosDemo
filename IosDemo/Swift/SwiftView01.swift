@@ -1,5 +1,5 @@
 /*
- * 本例用于演示变量，常量，基本数据类型，类型转换，类型别名，元组，可空类型，运算符，??，类型后跟!和?，值后跟!和?，m...n，m...，...n，m..<n，控制台打印数据，注释可嵌套
+ * 本例用于演示变量，常量，基本数据类型，类型转换，类型别名，元组，可空类型，运算符，??，类型后跟!和?，值后跟!和?，m...n，m...，...n，m..<n，控制台打印数据，注释可嵌套，语句末尾可以不加分号，数据转换
  */
 
 import SwiftUI
@@ -29,6 +29,8 @@ struct SwiftView01: View {
         result += sample5(); // 运算符
         result += "\n";
         result += sample6(); // 范围运算符（m...n，m...，...n，m..<n）
+        result += "\n";
+        result += sample7(); // 数据的类型转换
     }
 
     var body: some View {
@@ -48,7 +50,7 @@ struct SwiftView01: View {
         let 中文 = "c"; // 变量名支持任意 unicode 字符
         let `var` = "d"; // 用 swift 的关键字做变量名的话要用 `` 包围起来
         let e = "e", f = "f"; // 在一行里声明多个变量用 , 隔开
-        let g = "g" // 语句末尾可以不加分号
+        let g = "g" // 语句末尾可以不加分号（除非多条语句在同一行）
         
         return a + b + 中文 + `var` + e + f + g; // abcdefg
     }
@@ -157,5 +159,20 @@ struct SwiftView01: View {
         let e = a[2..<4]; // ["c", "d"]
         
         return "\(a), \(b), \(c), \(d), \(e)";
+    }
+    
+    func sample7() -> String {
+        // 以下演示如何做数据的类型转换（注：Swift 是不支持数据类型的隐式转换的）
+        
+        let a = "123"; // String 类型
+        let b = Int(123) // Int 类型
+        
+        let c = [1, 2, 3] // Array<Int> 类型
+        let d = Set(c) // Set<Int> 类型
+        let e = Array(d) // Array<Int> 类型
+        let f = Array<Int>(d) // Array<Int> 类型
+        let g = [Int](d) // Array<Int> 类型
+        
+        return "\(type(of: a)), \(type(of: b)), \(type(of: c)), \(type(of: d)), \(type(of: e)), \(type(of: f)), \(type(of: g))";
     }
 }

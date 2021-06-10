@@ -2,7 +2,7 @@
  * 本例用于演示字符串（多行字符串，不解释转义符，字符串模板，字符串拼接，相等和不等判断，Unicode 码转字符串，字符串的常用方法和属性，调用 NSString 的方法和属性）
  */
 
-// 注：要调用 oc 的方法和属性，需要先加上 import Foundation
+// 注：String 类型被桥接到了 NSString，如果要调用 oc 的方法和属性，需要先加上 import Foundation
 import Foundation
 import SwiftUI
 
@@ -94,7 +94,7 @@ struct SwiftView02: View {
     func sample4() -> String {
         let a = "webabcd";
         
-        // 注：要调用 oc 的方法和属性，需要先加上 import Foundation
+        // 注：String 类型被桥接到了 NSString，如果要调用 oc 的方法和属性，需要先加上 import Foundation
         
         // 可以直接调用 oc 的方法和属性
         let b = a.contains("web");

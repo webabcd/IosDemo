@@ -12,7 +12,7 @@ struct IosDemoApp: App {
     var body: some Scene {
         WindowGroup {
             // ContentView()
-            SwiftView02();
+            SwiftView04();
         }
     }
 }
