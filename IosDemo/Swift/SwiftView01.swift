@@ -128,6 +128,7 @@ struct SwiftView01: View {
     
     func sample5() -> String {
         // 经典的 + - * / 之类的运算符都是支持的，三元运算符 ? : 也是支持的
+        // 但是 ++ 和 -- 都是不支持的
         
         let a: Int? = nil;
         // ?? 的意思是：左侧的数据是 nil 则返回右侧的值，否则返回左侧的值

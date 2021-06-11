@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B36293A267336BE0084F2EA /* SwiftView05.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B362939267336BE0084F2EA /* SwiftView05.swift */; };
 		9B4F71FE2670B60D00C55B2C /* SwiftView03.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4F71FD2670B60D00C55B2C /* SwiftView03.swift */; };
 		9B5FC152266EF49400CF28AC /* IosDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5FC151266EF49400CF28AC /* IosDemoApp.swift */; };
 		9B5FC154266EF49400CF28AC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5FC153266EF49400CF28AC /* ContentView.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9B362939267336BE0084F2EA /* SwiftView05.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftView05.swift; sourceTree = "<group>"; };
 		9B4F71FD2670B60D00C55B2C /* SwiftView03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftView03.swift; sourceTree = "<group>"; };
 		9B5FC14E266EF49400CF28AC /* IosDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IosDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B5FC151266EF49400CF28AC /* IosDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IosDemoApp.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				9BA427E5267053E70038A30F /* SwiftView02.swift */,
 				9B4F71FD2670B60D00C55B2C /* SwiftView03.swift */,
 				9B8DEEF62671FF3D00B67398 /* SwiftView04.swift */,
+				9B362939267336BE0084F2EA /* SwiftView05.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B36293A267336BE0084F2EA /* SwiftView05.swift in Sources */,
 				9B5FC154266EF49400CF28AC /* ContentView.swift in Sources */,
 				9B5FC165266F3BC600CF28AC /* SwiftView01.swift in Sources */,
 				9B8DEEF72671FF3D00B67398 /* SwiftView04.swift in Sources */,
@@ -308,7 +312,7 @@
 				DEVELOPMENT_TEAM = 2N893J8326;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = IosDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,7 +334,7 @@
 				DEVELOPMENT_TEAM = 2N893J8326;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = IosDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
