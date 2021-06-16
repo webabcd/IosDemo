@@ -1,5 +1,5 @@
 /*
- * 本例用于演示函数（函数的参数，函数的返回值，函数标签，函数名称，参数的默认值，可变数量参数，inout 参数，函数类型的变量，函数类型作为参数，函数类型作为返回值，函数嵌套）
+ * 本例用于演示函数（函数的参数，函数的返回值，参数标签，参数名称，参数的默认值，可变数量参数，inout 参数，函数类型的变量，函数类型作为参数，函数类型作为返回值，函数嵌套）
  */
 
 import SwiftUI
@@ -9,7 +9,7 @@ struct SwiftView05: View {
     var result: String = "";
     
     init() {
-        result = sample1(); // 函数的参数，函数的返回值，函数标签，函数名称，参数的默认值
+        result = sample1(); // 函数的参数，函数的返回值，参数标签，参数名称，参数的默认值
         result += "\n";
         result += sample2(); // 可变数量参数，inout 参数
         result += "\n";
@@ -48,7 +48,7 @@ struct SwiftView05: View {
     func func2(a: Int, b: Int) -> Int {
         return a + b
     }
-    // 有参数，有返回值的函数（如果函数主体就一行代码，则可以省略 return）
+    // 有参数，有返回值的函数（如果函数只有一行表达式，则可以省略 return）
     func func3(a: Int, b: Int) -> Int {
         a + b
     }
