@@ -8,30 +8,34 @@
 import SwiftUI
 
 struct IndexView: View {
+    
+   
+    
     var body: some View {
         let siteMap: [SiteMap] = load("site_map.json")
-        
-        NavigationView {
-            List {
-                ForEach(siteMap, id: \.self) { parent in
-                    Section(header: Text("\(parent.title)")) {
-                        ForEach(parent.items, id: \.self) { child in
-                            Row(name: child.title)
-                        }
+
+        List {
+            ForEach(siteMap, id: \.self) { parent in
+                Section(header: Text("\(parent.title)")) {
+                    ForEach(parent.items, id: \.self) { child in
+             
+                        Row(name: child.title)
                     }
                 }
             }
-            .navigationBarTitle("望其项背 iOS")
         }
     }
     
     struct Row: View {
+        @State private var xxx = false
+        
         var name: String
-        @State var navigationViewIsActive: Bool = false
         
         var body: some View {
-            NavigationLink(destination: SwiftView01(), isActive: $navigationViewIsActive) {
-                Text("\(name)")
+            Button("\(name)") {
+                self.xxx = true
+            }.sheet(isPresented: $xxx) {
+                SwiftView01()
             }
         }
     }

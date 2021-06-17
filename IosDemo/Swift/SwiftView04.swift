@@ -148,7 +148,7 @@ struct SwiftView04: View {
         }
         
         
-        // 在 case 的结尾可以通过 fallthrough 强制不退出 switch 而是执行下一个 case 中的语句
+        // 在 case 的结尾可以通过 fallthrough 强制不退出 switch 而是执行下一个 case 中的语句（不管下面的 case 条件是否匹配）
         // 下面这个 switch 的运行结果是打印 1 2 3
         switch 1 {
         case 1:

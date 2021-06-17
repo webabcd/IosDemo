@@ -151,12 +151,12 @@ struct SwiftView03: View {
         // Dictionary 是 key/value 字典表
         
         // 声明一个空字典
-        var a = [String: String]()
+        var a = [String : String]()
         // 设置字典的 key 和 value
         a["k1"] = "v1"
         
         // 声明一个空字典
-        var b: [String: String] = [:]
+        var b: [String : String] = [:]
         b["k1"] = "v1"
         
         // 声明一个字典，并初始化数据
