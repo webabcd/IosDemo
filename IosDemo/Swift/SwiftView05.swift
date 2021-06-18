@@ -154,5 +154,3 @@ struct SwiftView05: View {
         return func13_1(a: a, b: b)
     }
 }
-
-

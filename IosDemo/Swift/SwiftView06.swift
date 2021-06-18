@@ -153,5 +153,3 @@ struct SwiftView06: View {
         funcList.append(a)
     }
 }
-
-

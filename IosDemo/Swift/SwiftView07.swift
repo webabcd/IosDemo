@@ -184,5 +184,3 @@ struct SwiftView07: View {
         }
     }
 }
-
-

@@ -105,5 +105,3 @@ struct SwiftView02: View {
         return "\(a), \(b), \(c)";
     }
 }
-
-
