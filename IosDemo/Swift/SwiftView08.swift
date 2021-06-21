@@ -5,6 +5,7 @@
  * 注：
  * 1、官方建议尽量用 struct 而不用 class
  * 2、可见性默认都是 public 的，其他可见性还有 private, internal（同项目可见）
+ * 3、结构体和类的区别：类可以继承，类的实例是引用类型（通过引用计数器管理），类不会像结构体那样根据属性自动生成初始化器
  */
 
 import SwiftUI
@@ -37,7 +38,7 @@ struct SwiftView08: View {
         let c = b // 结构体是值类型，所以 b 中的值类型数据都会新复制一份给 c
         b.age = 50; // 此时 b.age 是 50，而 c.age 是 40
         
-        // 下面这句是会编译时报错的，因为结构体是值类型，如果结构体是 let 常量，那么其内的所有值类型也都是不可变的
+        // 下面这句是会编译时报错的，因为结构体是值类型，如果结构体是 let 常量，那么其内的所有值类型也都是不可变的（值类型即使是 var 修饰也不可修改）
         // c.name = "xxx"
         
         print("myLazy 属性还没被初始化")
@@ -96,7 +97,7 @@ struct SwiftView08_Struct2 {
 }
 
 struct SwiftView08_Struct3 {
-    // 如果你的结构体有私有属性，那么就需要自己写初始化器（构造函数），否则会编译时报错（initializer is inaccessible due to 'private' protection level）
+    // 如果你的结构体有私有属性，且私有属性没有在声明的时候初始化，那么就需要自己写初始化器（构造函数），否则会编译时报错（initializer is inaccessible due to 'private' protection level）
     init(name: String) {
         // self 指的是实例本身（可以省略）
         self._name = name

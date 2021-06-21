@@ -1,5 +1,5 @@
 /*
- * 本例用于演示函数（函数的参数，函数的返回值，参数标签，参数名称，参数的默认值，可变数量参数，inout 参数，函数类型的变量，函数类型作为参数，函数类型作为返回值，函数嵌套）
+ * 本例用于演示函数（函数的参数，函数的返回值，参数标签，参数名称，参数的默认值，可变数量参数，inout 参数，函数类型的变量，函数类型作为参数，函数类型作为返回值，函数嵌套，通过 defer 在函数结束后执行）
  */
 
 import SwiftUI
@@ -16,6 +16,8 @@ struct SwiftView05: View {
         result += sample3(); // 函数类型的变量，函数类型作为参数，函数类型作为返回值
         result += "\n";
         result += sample4(); // 函数嵌套
+        result += "\n";
+        result += sample5(); // 通过 defer 在函数结束后执行
     }
 
     var body: some View {
@@ -152,5 +154,18 @@ struct SwiftView05: View {
             return a + b
         }
         return func13_1(a: a, b: b)
+    }
+    
+    
+    
+    func sample5() -> String {
+        // defer 代码块会在当前作用域结束后执行
+        defer {
+            print("defer") // 后执行这个
+        }
+        
+        print("sample5") // 先执行这个
+        
+        return "";
     }
 }
