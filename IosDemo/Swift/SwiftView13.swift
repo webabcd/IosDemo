@@ -104,6 +104,7 @@ struct SwiftView13: View {
     // 在使用时，定义协议的关联类型的 where 子句和类型约束
     func func3<T1: SwiftView13_Protocol4, T2: SwiftView13_Protocol4>(a: T1, b: T2) -> String
     // 如下代码会要求 T1 的 MyType 关联类型与 T2 的 MyType 关联类型要类型相同，且 T1 的 MyType 关联类型要实现 Equatable 协议
+    // 通过 == 约束关联类型的类型相同，通过 == 约束关联类型属于某一值类型，通过 : 约束关联类型属于某一协议或某一类
     where T1.MyType == T2.MyType, T1.MyType: Equatable {
         return "a:\(a.name), b:\(b.name)"
     }
@@ -166,6 +167,7 @@ protocol SwiftView13_Protocol4 {
     
     // 在声明时，定义协议的关联类型的 where 子句和类型约束
     // 约束关联类型 XXX 要实现 Equatable 协议和 SwiftView13_Protocol4 协议，且 XXX 的 MyType 与当前协议的 MyType 要类型相同
+    // 通过 == 约束关联类型的类型相同，通过 == 约束关联类型属于某一值类型，通过 : 约束关联类型属于某一协议或某一类
     // associatedtype XXX: Equatable, SwiftView13_Protocol4 where XXX.MyType == MyType
 }
 // 通过类型别名 typealias 实现协议的关联类型

@@ -1,5 +1,5 @@
 /*
- * 本例用于演示泛型（泛型函数，泛型结构体，泛型类，泛型下标，泛型的类型约束）
+ * 本例用于演示泛型（泛型函数，泛型结构体，泛型类，泛型下标，通过 : 实现泛型的类型约束，通过 where 实现泛型的类型约束）
  */
 
 import SwiftUI
@@ -11,7 +11,7 @@ struct SwiftView12: View {
     init() {
         result = sample1() // 泛型函数，泛型结构体，泛型类
         result += "\n"
-        result += sample2() // 泛型的类型约束
+        result += sample2() // 通过 : 实现泛型的类型约束，通过 where 实现泛型的类型约束
         result += "\n"
         result += sample3() // 泛型下标
     }
@@ -54,13 +54,19 @@ struct SwiftView12: View {
     func sample2() -> String {
         let a = SwiftView12_Class1()
         let b = func2(a: a)
+        let c = func3(a: "webabcd")
 
-        return "\(b)"
+        return "\(b), \(c)"
     }
-    // 泛型的类型约束
+    // 泛型的类型约束（通过 : 实现），泛型结构体和泛型类中的泛型的类型约束也是类似的
     // 类似如下方式约束泛型必须是指定的类型（也可以约束泛型符合某个协议，或同时符合多个协议）
     func func2<T: SwiftView12_Class1>(a: T) -> String {
         return "name:\(a.name), age:\(a.age)"
+    }
+    // 泛型的类型约束（通过 where 实现），泛型结构体和泛型类中的泛型的类型约束也是类似的
+    // 类似如下方式约束泛型必须实现 Equatable 协议
+    func func3<T>(a: T) -> String where T: Equatable {
+        return "\(a)"
     }
     
     

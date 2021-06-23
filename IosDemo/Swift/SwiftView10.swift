@@ -83,7 +83,7 @@ struct SwiftView10: View {
 // 通过 class 定义一个类
 class SwiftView10_Class1 {
     // class 不会自动生成初始化器，需要自己写（如果没定义初始化器且有没初始化的属性，则会编译时报错 Class 'xxx' has no initializers）
-    // 在初始化器中，需要初始化所有没被初始化的属性（可空类型可以不初始化），否则编译时报错 Return from initializer without initializing all stored properties）
+    // 初始化器可以有多个，且每一个初始化器中，都需要初始化所有没被初始化的属性（可空类型可以不初始化），否则编译时报错 Return from initializer without initializing all stored properties）
     init() {
         self.name = "webabcd"
     }
@@ -159,6 +159,8 @@ class SwiftView10_Class4 {
         } else {
             self.init(ageDouble: 100.0) // 要这么写，则初始化器必须用 convenience 修饰
         }
+        
+        // 注：这里再插一嘴，初始化器实际上就是用于实例化对象，如果你调用了多个初始化器，那么返回的对象实际上就是最后调用的那个初始化器构造出的对象
     }
     
     // init? 的意思允许实例化的结果是 nil
