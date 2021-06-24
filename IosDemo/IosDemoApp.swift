@@ -12,8 +12,8 @@ struct IosDemoApp: App {
     var body: some Scene {
         WindowGroup {
             // ContentView()
-            SwiftView16();
-            // IndexView()
+            // SwiftView16();
+            IndexView()
         }
     }
 }

@@ -19,7 +19,7 @@ struct IndexView: View {
                 Section(header: Text("\(parent.title)")) {
                     ForEach(parent.items, id: \.self) { child in
              
-                        Row(name: child.title)
+                        Row(name: child.title, url: child.url)
                     }
                 }
             }
@@ -30,12 +30,30 @@ struct IndexView: View {
         @State private var xxx = false
         
         var name: String
+        var url: String
         
         var body: some View {
             Button("\(name)") {
                 self.xxx = true
             }.sheet(isPresented: $xxx) {
-                SwiftView01()
+                switch self.url {
+                case "SwiftView01": SwiftView01()
+                case "SwiftView02": SwiftView02()
+                case "SwiftView03": SwiftView03()
+                case "SwiftView04": SwiftView04()
+                case "SwiftView05": SwiftView05()
+                case "SwiftView06": SwiftView06()
+                case "SwiftView07": SwiftView07()
+                case "SwiftView08": SwiftView08()
+                case "SwiftView09": SwiftView09()
+                case "SwiftView10": SwiftView10()
+                case "SwiftView11": SwiftView11()
+                case "SwiftView12": SwiftView12()
+                case "SwiftView13": SwiftView13()
+                case "SwiftView14": SwiftView14()
+                case "SwiftView15": SwiftView15()
+                default: SwiftView01()
+                }
             }
         }
     }
