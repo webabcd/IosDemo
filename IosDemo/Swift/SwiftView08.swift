@@ -4,8 +4,7 @@
  *
  * 注：
  * 1、官方建议尽量用 struct 而不用 class
- * 2、可见性默认都是 public 的，其他可见性还有 private, internal（同项目可见）
- * 3、结构体和类的区别：类可以继承，类的实例是引用类型（通过引用计数器管理），类不会像结构体那样根据属性自动生成初始化器
+ * 2、结构体和类的区别：类可以继承，类的实例是引用类型（通过引用计数器管理），类不会像结构体那样根据属性自动生成初始化器
  */
 
 import SwiftUI
@@ -103,7 +102,7 @@ struct SwiftView08_Struct3 {
         self._name = name
     }
     
-    // 可见性默认都是 public 的，其他可见性还有 private, internal（同模块可见）
+    // 可见性默认都是 internal 的
     private var _name: String
     // 属性的 getter 和 setter
     var name: String {

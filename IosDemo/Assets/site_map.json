@@ -39,7 +39,7 @@
         "url": "SwiftView09"
       },
       {
-        "title": "类：类（引用类型），初始化器，引用类型的相等判断，继承，重写，禁止重写，super，self，初始化器的 required，convenience，init?()，init!()，析构函数",
+        "title": "类：类（引用类型），可见性，初始化器，引用类型的相等判断，继承，重写，final，super，self，初始化器的 required，convenience，init?()，init!()，析构函数",
         "url": "SwiftView10"
       },
       {

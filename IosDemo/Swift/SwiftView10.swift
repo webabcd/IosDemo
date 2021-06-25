@@ -1,10 +1,15 @@
 /*
  * 本例用于演示类
- * 类（引用类型），初始化器，引用类型的相等判断，继承，重写，禁止重写，super，self，初始化器的 required，convenience，init?()，init!()，析构函数
+ * 类（引用类型），可见性，初始化器，引用类型的相等判断，继承，重写，final，super，self，初始化器的 required，convenience，init?()，init!()，析构函数
  *
  * 注：
  * 1、官方建议尽量用 struct 而不用 class
- * 2、可见性默认都是 public 的，其他可见性还有 private, internal（同项目可见）
+ * 2、可见性有从宽到窄依次为：
+ *    open - 外部可见，且项目外可继承
+ *    public - 外部可见，但项目外不可继承
+ *    internal - 同项目可见，默认值
+ *    fileprivate - 同文件可见
+ *    private - 仅类内可见
  * 3、关于方法，属性，下标等这里都没有详细说，请参见之前写的东西
  * 4、结构体和类的区别：类可以继承，类的实例是引用类型（通过引用计数器管理），类不会像结构体那样根据属性自动生成初始化器
  * 5、如果存在声明时没有初始化的属性，则需要在初始化器中对这些属性做初始化，否则会编译时报错
@@ -19,7 +24,7 @@ struct SwiftView10: View {
     init() {
         result = sample1() // 类（引用类型），初始化器，引用类型的相等判断
         result += "\n"
-        result += sample2() // 继承，重写，禁止重写，super，self
+        result += sample2() // 继承，重写，final，super，self
         result += "\n"
         result += sample3() // 初始化器的 required，convenience，init?()，init!()
         result += "\n"
