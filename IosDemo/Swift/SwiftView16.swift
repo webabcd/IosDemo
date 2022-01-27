@@ -1,5 +1,7 @@
 /*
- * 本例用于演示
+ * 本例用于演示 swift 和 oc 互相调用
+ *
+ * 参见 SwiftView16_swift.swift, SwiftView16_oc.h, SwiftView16_oc.m 文件
  */
 
 import Foundation
@@ -24,28 +26,14 @@ struct SwiftView16: View {
     }
     
     func sample1() -> String {
-        let a = SwiftView16_Class1()
-        a.startThread()
         
-        return ""
+        // 用于演示 oc 调用 swift
+        let a = SwiftView16_oc().ocToSwift()!;
+        
+        // 用于演示 swift 调用 oc
+        let b = SwiftView16_swift().swiftToOc();
+        
+        return "\(a)\n\(b)";
     }
 
-}
-
-class SwiftView16_Class1 {
-    func startThread() {
-        // Thread.detachNewThreadSelector
-        let thread1 = Thread(target: self, selector: #selector(threadMethod1(param:)), object: "webabcd")
-        
-        let param = "wanglei"
-        let thread2 = Thread {
-            print("param:\(param), isMainThread:\(Thread.current.isMainThread)")
-        }
-        thread1.start()
-        thread2.start()
-    }
-    
-    @objc func threadMethod1(param: String) {
-        print("param:\(param), isMainThread:\(Thread.current.isMainThread)")
-    }
 }

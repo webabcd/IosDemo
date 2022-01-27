@@ -52,6 +52,7 @@ struct IndexView: View {
                 case "SwiftView13": SwiftView13()
                 case "SwiftView14": SwiftView14()
                 case "SwiftView15": SwiftView15()
+                case "SwiftView16": SwiftView16()
                 default: SwiftView01()
                 }
             }
