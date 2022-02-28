@@ -139,9 +139,11 @@ struct SwiftView01: View {
         // 值后面跟 ? 然后再调用属性或方法的意思如下
         // 1、左侧不为 nil 则调用右侧的属性或方法，然后将结果转换为对应的可空类型
         // 2、左侧为 nil 则忽略右侧调用的属性或方法，直接返回 nil
+        // c.count 这句会编译时报错（因为 c 是可空类型，后面要跟 ? 或 !）
         // c?.count 的结果是 Optional(7)
         // c!.count 的结果是 7
         // d?.count 的结果是 nil
+        // d!.count 这句会运行时报错（因为 d 是 nil）
         
         // nil, 123, Optional(7), 7, nil
         return "\(a), \(b), \(c?.count), \(c!.count), \(d?.count)";
