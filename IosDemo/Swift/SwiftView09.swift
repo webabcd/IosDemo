@@ -67,13 +67,13 @@ struct SwiftView09_Struct1 {
         return self.name
     }
     
-    // 如果想在方法中修改属性的话，需要用 immutable 修饰方法，否则编译时报错（Cannot assign to property: 'self' is immutable）
+    // 如果想在方法中修改属性的话，需要用 mutating 修饰方法，否则编译时报错（Cannot assign to property: 'self' is immutable）
     mutating func func2() -> String {
         self.name = "wanglei" // 可以修改属性了
         return self.name
     }
     
-    // 如果想在方法中为 self 分配一个新的实例的话，需要用 immutable 修饰方法，否则编译时报错（Cannot assign to value: 'self' is immutable）
+    // 如果想在方法中为 self 分配一个新的实例的话，需要用 mutating 修饰方法，否则编译时报错（Cannot assign to value: 'self' is immutable）
     mutating func func3() -> String {
         self = SwiftView09_Struct1(name: "wangrx") // 可以为 self 分配新的实例了
         return self.name
