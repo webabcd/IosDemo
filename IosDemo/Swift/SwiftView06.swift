@@ -1,7 +1,7 @@
 /*
  * 本例用于演示闭包（闭包的基础，嵌套函数会维护它外部的变量，延迟执行 {} 括起来的闭包逻辑，@escaping）
  *
- * 闭包（closure）就是函数的匿名简化版，类似 lambda 表达式
+ * 闭包（closure）在 swift 中就是函数的匿名简化版，类似 lambda 表达式
  */
 
 import SwiftUI
@@ -15,7 +15,7 @@ struct SwiftView06: View {
         result += "\n";
         result += sample2() // 闭包基础 2
         result += "\n";
-        result += sample3() // 嵌套函数会维护它外部的变量
+        result += sample3() // 嵌套函数会维护它外部的变量（这个就是其他语言的闭包概念，而 swift 中的闭包类似于其他语言的匿名函数）
         result += "\n";
         result += sample4() // 延迟执行 {} 括起来的闭包逻辑
         result += "\n";
@@ -114,6 +114,8 @@ struct SwiftView06: View {
             total += number
             return total
         }
+        // 函数返回的函数就是就是其他语言的闭包概念（闭包引用的闭包外的变量的生命周期会拉长到与闭包一致）
+        // 而 swift 中的闭包类似于其他语言的匿名函数
         return myFunc
     }
     
