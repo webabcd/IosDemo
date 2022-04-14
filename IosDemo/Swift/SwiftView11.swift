@@ -178,7 +178,7 @@ enum SwiftView11_Error: Error {
 }
 
 
-// 用于演示嵌套类型
+// 用于演示嵌套类型（本例演示的是在类中定义枚举，在类中定义类也是一样的）
 class SwiftView11_Class3 {
     // 枚举 SwiftView11_Class3_Enum 定义在类 SwiftView11_Class3 中，这就是所谓的嵌套类型（也就是类中定义其他类）
     enum SwiftView11_Class3_Enum {

@@ -105,7 +105,7 @@ struct SwiftView01: View {
         let a: Int? = nil;
         let b: Int? = 100;
         
-        // 值后面跟 ! 用于强制取出可空类型中的值
+        // 值后面跟 ! 用于强制取出可空类型中的值（关于值后面跟 ? 请参见 sample5）
         // let a2 = a!; // 此句会运行时报错，因为 a 是 nil
         let b2 = b!; // 此句运行正常，b2 会被推断为 Int 类型，而不是 Int? 类型
         
@@ -145,8 +145,22 @@ struct SwiftView01: View {
         // d?.count 的结果是 nil
         // d!.count 这句会运行时报错（因为 d 是 nil）
         
-        // nil, 123, Optional(7), 7, nil
-        return "\(a), \(b), \(c?.count), \(c!.count), \(d?.count)";
+
+        class MyClass {
+            var a: Int?
+        }
+        let e: MyClass? = MyClass()
+        e!.a = 123
+        let f = e!.a    // 结果是 Optional(123)，这个好理解
+        let g = e!.a!   // 结果是 123，这个好理解
+        let h = (e!.a)! // 结果是 123，这个好理解
+        let i = e?.a    // 结果是 Optional(123)，这个好理解
+        let j = e?.a!   // 结果是 Optional(123)，这个不太好理解，这种情况如果你想强制取出可空类型中的值，请用下面的方式
+        let k = (e?.a)! // 结果是 123，这个好理解
+        
+        
+        // nil, 123, Optional(7), 7, nil, Optional(123), 123, 123, Optional(123), 123
+        return "\(a), \(b), \(c?.count), \(c!.count), \(d?.count), \(f), \(g), \(h), \(i), \(j), \(k)";
     }
     
     func sample6() -> String {
