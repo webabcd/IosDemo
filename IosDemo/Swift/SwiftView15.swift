@@ -208,6 +208,13 @@ class SwiftView15_Class3 {
         // 可以类似如下这样，弱引用 self 的同时将他赋值给另一个变量。另外，如果需要将多个引用加入捕获列表的话用逗号隔开即可
         // [unowned xxx = self] in
         
+        // 也可以用 weak 弱引用代替 unowned 弱引用
+        // weak 和 unowned 的区别是
+        //   [unowned self] 必须保证 self 不为 nil，否则会报错（也就是说，如果 self 被释放了，你再在闭包中引用 self 则会报错）
+        //   [weak self] 允许 self 为 nil，也就是说你在闭包中引用 self 的时候要通过 self?.xxx 的方式引用
+        // [weak self] in
+        // [weak xxx = self] in
+        
         return self.name
     }
 
