@@ -97,13 +97,21 @@ struct SwiftView04: View {
             print("b 的值为 nil") // 这里是没有 c 的
         }
         
-        // gurad - 如果不满足指定的条件则 return（这个逻辑用 if...else 也可以实现，但是用 guard 会更简单）
-        guard a == 1 else { // 如果 a == 1 不成立则走到 else
-            print("a 不等 1")
-            return "走到 guard 的 else 了" // 在 guard 的 else 中必须要 return（也就是退出当前函数，并返回指定的数据）
+        // guard/else - 如果 guard 条件成立则跳过整个 guard/else 语句，如果 guard 条件不成立，则走 else（else 里必须要 return）
+        guard a == 1 else { // 如果 a == 1 不成立则走到 else，如果成立则跳过整个 guard/else 语句后继续执行
+            print("a 不等于 1")
+            return "" // 在 guard 的 else 中必须要 return
         }
+        print("a 等于 1")
         
-        return "没有走到 guard 的 else"
+        // guard 后面跟赋值语句
+        guard let d = b else { // 如果 b 是 nil 则走到 else，否则会跳过整个 guard/else 语句后继续执行
+            print("b 的值为 nil")
+            return ""
+        }
+        print("d 的值为 \(d)") // 这里可以使用 d
+        
+        return ""
     }
     
     func sample4() -> String {
