@@ -87,10 +87,10 @@ struct SwiftView04: View {
         }
         
         var b: Int? = nil
-        if (a == 0) {
+        if a == 0 {
             b = 100
         }
-        // if 后面跟赋值语句
+        // if 后面跟赋值语句（允许有多条赋值语句，用逗号隔开即可）
         if let c = b { // 如果 b 不是 nil，则将 b 的值赋予 c
             print("c 的值为 \(c)") // 这里可以使用 c
         } else { // 如果 b 是 nil，则不会声明 c
@@ -104,7 +104,7 @@ struct SwiftView04: View {
         }
         print("a 等于 1")
         
-        // guard 后面跟赋值语句
+        // guard 后面跟赋值语句（允许有多条赋值语句，用逗号隔开即可）
         guard let d = b else { // 如果 b 是 nil 则走到 else，否则会跳过整个 guard/else 语句后继续执行
             print("b 的值为 nil")
             return ""

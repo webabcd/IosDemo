@@ -56,6 +56,7 @@ struct SwiftView11: View {
         }
         
         // 通过 dot...try...catch 来捕获异常
+        // 注：swift 中的 catch 和 oc 中的 catch 都不是万能的，你要想在 swift 中 catch 到异常，则要求你 try 的函数必须是标记为 throws 的函数并且 throw 了异常
         do {
             let b = try a.func1() // 这里要加 try
             print("b: \(b)")

@@ -1,5 +1,5 @@
 /*
- * 本例用于演示字符串（多行字符串，不解释转义符，字符串模板，字符串拼接，相等和不等判断，Unicode 码转字符串，字符串的常用方法和属性，调用 NSString 的方法和属性）
+ * 本例用于演示字符串（多行字符串，不解释转义符，字符串模板，字符串格式化，字符串拼接，相等和不等判断，Unicode 码转字符串，字符串的常用方法和属性，调用 NSString 的方法和属性）
  */
 
 // 注：String 类型被桥接到了 NSString，如果要调用 oc 的方法和属性，需要先加上 import Foundation
@@ -11,7 +11,7 @@ struct SwiftView02: View {
     var result: String = "";
     
     init() {
-        result = sample1(); // 多行字符串，不解释转义符，字符串模板
+        result = sample1(); // 多行字符串，不解释转义符，字符串模板，字符串格式化
         result += "\n";
         result += sample2(); // 字符串拼接，相等和不等判断，Unicode 码转字符串
         result += "\n";
@@ -50,7 +50,10 @@ struct SwiftView02: View {
         // 如果想在 #" "# 中插入变量或表达式的话，就用 \#()
         let d = #"\#(b)"#;
         
-        return "\(a)\n\(b), \(c), \(d)";
+        // 字符串格式化的示例
+        let e = String(format: "name:%@, age:%d", arguments: ["webabcd", 40])
+        
+        return "\(a)\n\(b), \(c), \(d), \(e)";
     }
 
     func sample2() -> String {
