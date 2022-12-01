@@ -67,14 +67,24 @@ struct SwiftView03: View {
         // sorted(by: >) - 升序排序
         let g = f.sorted(by: <) // [1, 2, 3, 4]
         
+        // filter - 获取符合指定条件的数据
+        let h = e.filter { p in
+            p > 2
+        } // [1, 2, 3, 4]
+        
+        // first - 获取符合指定条件的数据的第一条
+        let i = e.first(where: { (p) -> Bool in 
+            p > 2
+        }) // [3, 4]
+        
         /*
          * 其他常用属性或方法还有 isEmpty, count, contains(), remove(), removeFirst(), removeLast(), removeAll() 等
          */
 
         // Array 类型被桥接到了 NSArray，如果要调用 oc 的方法和属性，需要先加上 import Foundation
-        let h = (e as NSArray).lastObject // Optional(4)
+        let j = (e as NSArray).lastObject // Optional(4)
         
-        return "\(a), \(b), \(c), \(d), \(e), \(f), \(g), \(h)"
+        return "\(a), \(b), \(c), \(d), \(e), \(f), \(g), \(h), \(i), \(j)"
     }
 
     func sample2() -> String {
