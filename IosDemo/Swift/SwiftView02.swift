@@ -53,7 +53,10 @@ struct SwiftView02: View {
         // 字符串格式化的示例
         let e = String(format: "name:%@, age:%d", arguments: ["webabcd", 40])
         
-        return "\(a)\n\(b), \(c), \(d), \(e)";
+        // 格式化浮点型数据，保留 n 位小数
+        let f = String(format: "salary:%.3f", 123.456789)
+        
+        return "\(a)\n\(b), \(c), \(d), \(e), \(f)";
     }
 
     func sample2() -> String {
