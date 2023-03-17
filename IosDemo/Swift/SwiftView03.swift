@@ -70,12 +70,12 @@ struct SwiftView03: View {
         // filter - 获取符合指定条件的数据
         let h = e.filter { p in
             p > 2
-        } // [1, 2, 3, 4]
+        } // [3, 4]
         
         // first - 获取符合指定条件的数据的第一条
         let i = e.first(where: { (p) -> Bool in 
             p > 2
-        }) // [3, 4]
+        }) // Optional(3)
         
         /*
          * 其他常用属性或方法还有 isEmpty, count, contains(), remove(), removeFirst(), removeLast(), removeAll() 等
