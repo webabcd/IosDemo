@@ -36,7 +36,7 @@ struct SwiftView03: View {
     func sample1() -> String {
         // Array 是有序的，且可重复的
         
-        // 声明一个空数组
+        // 声明一个空数组，[Int]() 就是 Array<Int>()
         var a = [Int]()
         // append() - 在数组的末尾追加元素
         a.append(1) // [1]
@@ -77,14 +77,21 @@ struct SwiftView03: View {
             p > 2
         }) // Optional(3)
         
+        // map - 处理每个元素后再放入新的数组
+        let j = e.map { p in String(p) } // ["1", "2", "3", "4"]
+        
+        // joined - 字符串数组转字符串
+        // 注：如果数组的元素并非都是字符串，则可以通过 map 将其转换为字符串数组，然后再通过 joined 转为字符串
+        let k = j.joined(separator: ",") // 1,2,3,4
+        
         /*
          * 其他常用属性或方法还有 isEmpty, count, contains(), remove(), removeFirst(), removeLast(), removeAll() 等
          */
 
         // Array 类型被桥接到了 NSArray，如果要调用 oc 的方法和属性，需要先加上 import Foundation
-        let j = (e as NSArray).lastObject // Optional(4)
+        let l = (e as NSArray).lastObject // Optional(4)
         
-        return "\(a), \(b), \(c), \(d), \(e), \(f), \(g), \(h), \(i), \(j)"
+        return "\(a), \(b), \(c), \(d), \(e), \(f), \(g), \(h), \(i), \(j), \(k), \(l)"
     }
 
     func sample2() -> String {
@@ -160,7 +167,7 @@ struct SwiftView03: View {
     func sample4() -> String {
         // Dictionary 是 key/value 字典表
         
-        // 声明一个空字典
+        // 声明一个空字典，[String : String]() 就是 Dictionary<String, String>()
         var a = [String : String]()
         // 设置字典的 key 和 value
         a["k1"] = "v1"
