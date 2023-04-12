@@ -100,6 +100,28 @@ struct SwiftView01: View {
         return "\(a.0), \(a.1), \(a.2), \(b), \(c), \(d.p1), \(d.p2)";
     }
 
+    
+    // 像下面这样写是会报错的，因为 aaa 没有初始化
+    // var aaa: MyClass
+    
+    // 像下面这样写是不会报错的
+    // 类型后面跟 ? 用于声明可选类型（Optional），即可空类型
+    // 后续使用的时候，可以 bbb?.hello() 或 bbb!.hello()
+    var bbb: MyClass?
+    
+    // 像下面这样写是不会报错的
+    // 类型后面跟 ! 用于声明可选类型（Optional），即可空类型，但是它可以在需要的时候将可空类型隐式转换为对应的不可空类型
+    // 后续使用的时候，可以 ccc?.hello() 或 ccc!.hello()
+    // 也可以直接 ccc.hello() 其逻辑与 ccc!.hello() 相同，这就实现了类似其他语言的延迟初始化的效果
+    var ccc: MyClass!
+    
+    class MyClass {
+        func hello() {
+            print("hello")
+        }
+    }
+    
+    
     func sample4() -> String {
         // 类型后面跟 ? 用于声明可选类型（Optional），即可空类型
         let a: Int? = nil;
@@ -109,17 +131,17 @@ struct SwiftView01: View {
         // let a2 = a!; // 此句会运行时报错，因为 a 是 nil
         let b2 = b!; // 此句运行正常，b2 会被推断为 Int 类型，而不是 Int? 类型
         
-        // 类型后面跟 ! 用于在需要的时候将可空类型隐式转换为对应的不可空类型
-        let c: Int! = b; // c 的类型是 Int?
-        let c2 = c; // c2 的类型是 Int?
-        let c3: Int = c; // c3 的类型是 Int
-        let c4 = c + 0; // c4 的类型是 Int
+        // 类型后面跟 ! 用于声明可选类型（Optional），即可空类型，但是它可以在需要的时候将可空类型隐式转换为对应的不可空类型
+        var c: Int! = nil // c 的类型是 Int?（这里 c 被声明为 Int! 类型，其本质其实还是 Int? 类型，但是在需要的时候可以隐式转换为 Int 类型）
+        c = 100
+        let c2: Int = c // c2 的类型是 Int（这里 c 的类型会由 Int? 隐式转换为 Int，如果 c 的值是 nil 则会报错）
+        let c3 = c + 0 // c3 的类型是 Int（这里 c 的类型会由 Int? 隐式转换为 Int，如果 c 的值是 nil 则会报错）
         
         // 如下方式用于尝试取出可空类型中的值
         if let d = b { // 可以取出可空类型 b 中的值，这里 d 会被推断为 Int 类型，而不是 Int? 类型
             
-            // nil, Optional(100), 100, Optional(100), Optional(100), 100, 100, 100
-            return "\(a), \(b), \(b2), \(c), \(c2), \(c3), \(c4), \(d)";
+            // nil, Optional(100), 100, Optional(100), 100, 100, 100
+            return "\(a), \(b), \(b2), \(c), \(c2), \(c3), \(d)";
 
         } else { // 可空类型 b 是 nil
             return "不会走到这里"
