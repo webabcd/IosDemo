@@ -57,6 +57,14 @@ struct SwiftView04: View {
             print(item) // 打印出的数据为 0 10 20 30
         }
         
+        // forEach() 的用法
+        [1, 2, 3].forEach { p in
+            print(p)
+        }
+        [1, 2, 3].forEach {
+            print($0)
+        }
+        
         return ""
     }
 
