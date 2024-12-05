@@ -16,11 +16,13 @@ struct SwiftView03: View {
     init() {
         result = sample1() // 数组（Array）
         result += "\n";
-        result += sample2() // 元素不可重复，且无序的集合（Set）
+        result += sample2() // 数组中闭包和高阶函数的使用
         result += "\n";
-        result += sample3() // 元素不可重复，且有序的集合（Set）
+        result += sample3() // 元素不可重复，且无序的集合（Set）
         result += "\n";
-        result += sample4() // 字典（Dictionary）
+        result += sample4() // 元素不可重复，且有序的集合（Set）
+        result += "\n";
+        result += sample5() // 字典（Dictionary）
     }
 
     var body: some View {
@@ -67,34 +69,49 @@ struct SwiftView03: View {
         // sorted(by: >) - 升序排序
         let g = f.sorted(by: <) // [1, 2, 3, 4]
         
+        // joined - 字符串数组转字符串
+        // 注：如果数组的元素并非都是字符串，则可以通过 map 将其转换为字符串数组，然后再通过 joined 转为字符串
+        let h = ["1", "2", "3", "4"].joined(separator: ",") // 1,2,3,4
+        
+        // Array 类型被桥接到了 NSArray，如果要调用 oc 的方法和属性，需要先加上 import Foundation
+        let i = (e as NSArray).lastObject // Optional(4)
+        
+        /*
+         * 其他常用属性或方法还有 isEmpty, count, filter(), first(), map(), contains(), remove(), removeFirst(), removeLast(), removeAll() 等
+         */
+        
+        return "\(a), \(b), \(c), \(d), \(e), \(f), \(g), \(h), \(i)"
+    }
+    
+    func sample2() -> String {
+        // Array 是有序的，且可重复的
+        // 本例介绍数组中闭包和高阶函数的使用
+        
+        var a = [1, 2, 3, 4] // [1, 2, 3, 4]
+
         // filter - 获取符合指定条件的数据
-        let h = e.filter { p in
+        let b = a.filter { p in
             p > 2
         } // [3, 4]
         
         // first - 获取符合指定条件的数据的第一条
-        let i = e.first(where: { (p) -> Bool in 
+        let c = a.first(where: { (p) -> Bool in
             p > 2
         }) // Optional(3)
         
         // map - 处理每个元素后再放入新的数组
-        let j = e.map { p in String(p) } // ["1", "2", "3", "4"]
+        let d = a.map { p in String(p) } // ["1", "2", "3", "4"]
         
-        // joined - 字符串数组转字符串
-        // 注：如果数组的元素并非都是字符串，则可以通过 map 将其转换为字符串数组，然后再通过 joined 转为字符串
-        let k = j.joined(separator: ",") // 1,2,3,4
+        // 使用 $0 引用第一个参数，从而进一步简化代码
+        let e = a.filter { $0 > 2 } // [3, 4]
         
-        /*
-         * 其他常用属性或方法还有 isEmpty, count, contains(), remove(), removeFirst(), removeLast(), removeAll() 等
-         */
-
-        // Array 类型被桥接到了 NSArray，如果要调用 oc 的方法和属性，需要先加上 import Foundation
-        let l = (e as NSArray).lastObject // Optional(4)
+        // 删除值为 3 的元素
+        a.removeAll { $0 == 3 } // [1, 2, 4]
         
-        return "\(a), \(b), \(c), \(d), \(e), \(f), \(g), \(h), \(i), \(j), \(k), \(l)"
+        return "\(a), \(b), \(c), \(d), \(e)"
     }
 
-    func sample2() -> String {
+    func sample3() -> String {
         // Set 是无序的，且不可重复的（重复数据会被自动过滤掉）
         
         // 声明一个空的不可重复无序集合
@@ -145,7 +162,7 @@ struct SwiftView03: View {
         return "\(a), \(b), \(c), \(d), \(e), \(f), \(g), \(h), \(i), \(j), \(k), \(l), \(m), \(n), \(o), \(p)"
     }
     
-    func sample3() -> String {
+    func sample4() -> String {
         // Set 是无序的（但是可以排序），且不可重复的
         
         let a: Set<Int> = [1, 2, 3, 4, 5]
@@ -164,7 +181,7 @@ struct SwiftView03: View {
         return "\(a), \(b), \(c), \(type(of: d)), \(type(of: e)), \(type(of: f))"
     }
     
-    func sample4() -> String {
+    func sample5() -> String {
         // Dictionary 是 key/value 字典表
         
         // 声明一个空字典，[String : String]() 就是 Dictionary<String, String>()
