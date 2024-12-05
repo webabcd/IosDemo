@@ -105,10 +105,13 @@ struct SwiftView03: View {
         // 使用 $0 引用第一个参数，从而进一步简化代码
         let e = a.filter { $0 > 2 } // [3, 4]
         
+        // 使用 $0 引用第一个参数，从而进一步简化代码
+        let f = a.first { $0 > 2 } // Optional(3)
+        
         // 删除值为 3 的元素
         a.removeAll { $0 == 3 } // [1, 2, 4]
         
-        return "\(a), \(b), \(c), \(d), \(e)"
+        return "\(a), \(b), \(c), \(d), \(e), \(f)"
     }
 
     func sample3() -> String {
