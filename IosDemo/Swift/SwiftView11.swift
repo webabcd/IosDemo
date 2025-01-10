@@ -71,7 +71,7 @@ struct SwiftView11: View {
         // 通过 try? 实现没有异常则返执行结果，有异常则返回 nil（不会抛出异常）
         let c = try? a.func1() // c 是可空类型
         
-        // 通过 try! 实现没有异常则返执行结果，有异常则抛出异常（不 catch 的话会崩溃）
+        // 通过 try! 实现没有异常则返执行结果，有异常则抛出异常（无法 catch 到）
         // let d = try! a.func1() // d 是非空类型
         
         return "\(c)"
